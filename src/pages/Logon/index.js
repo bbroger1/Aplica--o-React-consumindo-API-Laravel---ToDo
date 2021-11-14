@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
-import api from '../../services/api';
+import api from '../../services/logonService';
 import './styles.css';
 
 export default function Logon() {
@@ -14,16 +14,12 @@ export default function Logon() {
     async function handleLogin(e) {
         e.preventDefault();
 
-        try {
-            const response = await api.post('api/login', { email, password });
-            if (response.data.status === true) {
-                localStorage.setItem('token', response.data.msg);
-                //history.push('/lists');
-            } else {
-                setErrorLogin(response.data.message);
-            }
-        } catch (err) {
-            setErrorLogin(err.response.data.error);
+        const response = await api.login({ email, password });
+        if (response.status === true) {
+            localStorage.setItem('token', response.msg);
+            history.push('/lists');
+        } else {
+            setErrorLogin(response.error)
         }
     }
 
@@ -36,12 +32,14 @@ export default function Logon() {
                         placeholder="Seu e-mail"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
+                        required
                     />
                     <input
                         placeholder="Sua Senha"
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
+                        required
                     />
 
                     <button className="button" type="submit">Entrar</button>
