@@ -10,12 +10,10 @@ tasklist.list = async (token) => {
             Authorization: `Bearer ${token}`,
         }
     })
-        .then(response => { return response.data })
+        .then(response => { return response.data; })
         .catch(error => { return error; })
-    console.log('passou aqui')
+
     return res;
 }
-
-
 
 export default tasklist;

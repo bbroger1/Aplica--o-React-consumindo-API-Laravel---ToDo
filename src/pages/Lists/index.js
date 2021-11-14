@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Header from '../../components/Header'
+import Header from '../../components/Header';
 import Task from '../../components/Task'
 import InsertList from '../../components/InsertList'
 import InsertTask from '../../components/InsertTask'
@@ -16,7 +16,12 @@ export default function Lists() {
     const history = useHistory();
 
     useEffect(() => {
-        const response = await api.list(token);
+        async function fetchDataList() {
+            const response = await api.list(token);
+            setTaskList(response.data);
+        }
+        fetchDataList();
+
     }, [token]);
 
     async function onInsertList(data) {
