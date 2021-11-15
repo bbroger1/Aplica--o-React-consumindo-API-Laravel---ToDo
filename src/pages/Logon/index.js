@@ -16,7 +16,7 @@ export default function Logon() {
 
         const response = await api.login({ email, password });
         if (response.status === true) {
-            localStorage.setItem('token', response.msg);
+            localStorage.setItem('token', response.message);
             history.push('/lists');
         } else {
             setErrorLogin(response.error)

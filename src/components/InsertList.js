@@ -13,7 +13,7 @@ export default function InsertList({ onInsertList }) {
         } else {
             await onInsertList({
                 "title": listName,
-                "status": 0
+                "status": 2
             });
 
             setListName("");

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Logon from './pages/Logon';
 import Lists from './pages/Lists';
+import Register from './pages/Register';
 
 export default function Routes() {
     return (
@@ -9,6 +10,7 @@ export default function Routes() {
             <Switch>
                 <Route path='/' exact component={Logon} />
                 <Route path='/lists' exact component={Lists} />
+                <Route path='/register' exact component={Register} />
             </Switch>
         </BrowserRouter>
     );

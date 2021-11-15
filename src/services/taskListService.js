@@ -11,7 +11,20 @@ tasklist.list = async (token) => {
         }
     })
         .then(response => { return response.data; })
-        .catch(error => { return error; })
+        .catch(error => { return error.response; })
+
+    return res;
+}
+
+tasklist.store = async (token, data) => {
+    const urlList = baseUrl + "/tasklist"
+    const res = await axios.post(urlList, data, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    })
+        .then(response => { return response.data; })
+        .catch(error => { return error.response; })
 
     return res;
 }

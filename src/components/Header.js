@@ -21,7 +21,7 @@ export default function Header() {
             <AppBar className="menu" position="static">
                 <Toolbar>
                     <Link to="/financas" className="menuTitle">
-                        <h1>ToDo List</h1>
+                        <h1>Minhas Tarefas</h1>
                     </Link>
 
                     <button className="menuButton" onClick={handleLogout} type="button">

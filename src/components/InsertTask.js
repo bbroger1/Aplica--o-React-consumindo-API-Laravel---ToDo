@@ -13,16 +13,15 @@ export default function InsertTask({ onInsertTask, taskList }) {
     }, [taskList]);
 
     const handleChangeSelect = (event) => {
-        setSelectList(event?.target.value);
+        setSelectList(event.target.value);
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         await onInsertTask({
             "list_id": selectList,
             "title": taskName,
-            "status": 0
+            "status": 2
         });
 
         setSelectList("");
@@ -32,8 +31,7 @@ export default function InsertTask({ onInsertTask, taskList }) {
     return (
         <div className="form">
             <strong>Cadastrar Tarefa</strong>
-            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-
+            <form autoComplete="off" onSubmit={handleSubmit}>
                 <div>
                     <TextField
                         name="taskName"
