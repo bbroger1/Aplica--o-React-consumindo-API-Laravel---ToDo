@@ -88,8 +88,7 @@ export default function Lists() {
 
         const response = await apiTask.check(token, taskId);
 
-        const list = await api.list(token);
-        setTaskList(list.data);
+        setTaskList(response.data);
 
     };
 
