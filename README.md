@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+👤 **Rogério Carvalho Santoss** 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Github: [@bbroger1](https://github.com/bbroger1)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+<p align="center">
+  
+  <img alt="Back-end" src="https://img.shields.io/static/v1?label=Back-end&message=Ok&color=27ae60&labelColor=444444">
+  
+  <img alt="Front-end" src="https://img.shields.io/static/v1?label=Front-end&message=Ok&color=27ae60&labelColor=444444"> 
 
-### `npm start`
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <a href="https://github.com/bbroger1/Aplicacao-React-consumindo-API-Laravel-ToDo">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/bbroger1/api">Back-end</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="/frontend">Front-end</a>
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Nesta Página:
 
-### `npm test`
+* [Tecnologias](#tecnologias)
+* [Projeto](#projeto)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<span id="tecnologias"></span>
+## Tecnologias
 
-### `npm run build`
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [PHP](https://www.php.net/)
+- [JWT](https://github.com/tymondesigns/jwt-auth/wiki)
+- [Laravel](https://laravel.com/)
+- [React](https://reactjs.org)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<span id="projeto"></span>
+## Projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O ToDoList é um projeto feito para treinar o conhecimento nas tecnologias citadas acima. Neste projeto, foi desenvolvido um gerenciador de tarefas, com a possibilidade de criar listas de tarefas, e as tarefas de cada lista. Possuindo Registro e Login, utilizando JWT, para separarmos as Listas de Tarefa por usuário.
 
-### `npm run eject`
+O sistema foi feito baseado em uma série de posts no Medium, fiz algumas modificações.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Parte 1 — Projeto, Arquitetura e Configuração](https://medium.com/@matheussg/api-laravel-react-js-parte-1-projeto-arquitetura-e-configura%C3%A7%C3%A3o-d2b8e77cde7d)
+- [Parte 2 — Estrutura e Cadastro de Usuário](https://medium.com/@matheussg/api-laravel-react-js-parte-2-estrutura-e-cadastro-de-usu%C3%A1rio-3269ee0be2ea)
+- [Parte 3 — Logout e Login com JWT](https://medium.com/@matheussg/api-laravel-react-js-parte-3-logout-e-login-com-jwt-1823d36266db)
+- [Parte 4 — Implementação da Lista de Tarefas](https://medium.com/@matheussg/api-laravel-react-js-parte-4-implementa%C3%A7%C3%A3o-da-lista-de-tarefas-5569910f6840)
+- [Parte 5 — Finalizando o Backend](https://medium.com/@matheussg/api-laravel-react-js-parte-5-finalizando-o-backend-480261b4bc1b)
+- [Parte 6 — O Frontend](https://medium.com/@matheussg/api-laravel-react-js-parte-6-o-frontend-a17f5da322e9)
