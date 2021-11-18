@@ -36,7 +36,7 @@ export default function InsertTask({ onInsertTask, taskList }) {
                     <TextField
                         name="taskName"
                         id="taskName"
-                        label="Titulo da Lista de Tarefas"
+                        label="Titulo da Tarefa"
                         className="TextFieldBlock"
                         value={taskName}
                         onChange={e => setTaskName(e.target.value)}

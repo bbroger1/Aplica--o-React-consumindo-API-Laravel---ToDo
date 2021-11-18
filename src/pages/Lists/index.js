@@ -36,7 +36,7 @@ export default function Lists() {
         }
         fetchDataList();
 
-    }, []);
+    }, [token]);
 
     async function onInsertList(data) {
         try {
@@ -112,63 +112,60 @@ export default function Lists() {
     return (
         <React.Fragment>
             <Header />
-
             <Container maxWidth="xl">
                 <Grid container>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <span className='span_error'>{taskListError}</span>
                         <InsertList onInsertList={onInsertList} />
                         <span className='span_error'>{taskError}</span>
                         <InsertTask onInsertTask={onInsertTask} taskList={taskList} />
                     </Grid>
 
-                    <Grid item xs={8}>
-                        <Container maxWidth="xl">
-                            <Grid container>
-                                {taskList.length > 0 ? taskList.map((list) =>
-                                (
-                                    <Grid item xs={4} key={list.id}>
-                                        <div className="ListContainer">
-                                            <div className="ListHeader">
-                                                {list.status === "À Fazer" ? (
-                                                    <h3 className="ListTitle">{list.title}</h3>
-                                                ) : (
-                                                    <h3 className="ListTitle">{list.title} - Finalizado</h3>
-                                                )}
-                                            </div>
-                                            <span className='span_error'>{taskDeleteError}</span>
-                                            <div className="Taks">
-                                                <div className="TaskItem">
-                                                    {list.task.length > 0 ? list.task.map((task) =>
-                                                    (
-                                                        <Grid container key={task.id}>
-                                                            <Grid item xs={10}>
-                                                                <FormControl component="fieldset">
-                                                                    <FormGroup aria-label="position" row>
-                                                                        <FormControlLabel
-                                                                            value={task.id}
-                                                                            control={<GreenCheckbox checked={task.status === 2 ? false : true} onChange={handleChange} />}
-                                                                            label={task.title}
-                                                                            labelPlacement="end"
-                                                                        />
-                                                                    </FormGroup>
-                                                                </FormControl>
-                                                            </Grid>
-                                                            <Grid item xs={2}>
-                                                                <FiTrash className="floatRight deleteIcon" onClick={() => handleDelete(task.id)} size={18} />
-                                                            </Grid>
+                    <Grid item xs={12} md={9}>
+                        <Grid container>
+                            {taskList.length > 0 ? taskList.map((list) =>
+                            (
+                                <Grid item xs={12} md={4} key={list.id}>
+                                    <div className="ListContainer">
+                                        <div className="ListHeader">
+                                            {list.status === "À Fazer" ? (
+                                                <h3 className="ListTitle">{list.title}</h3>
+                                            ) : (
+                                                <h3 className="ListTitle">{list.title} - Finalizado</h3>
+                                            )}
+                                        </div>
+                                        <span className='span_error'>{taskDeleteError}</span>
+                                        <div className="Taks">
+                                            <div className="TaskItem">
+                                                {list.task.length > 0 ? list.task.map((task) =>
+                                                (
+                                                    <Grid container key={task.id}>
+                                                        <Grid item xs={10}>
+                                                            <FormControl component="fieldset">
+                                                                <FormGroup aria-label="position" row>
+                                                                    <FormControlLabel
+                                                                        value={task.id}
+                                                                        control={<GreenCheckbox checked={task.status === 2 ? false : true} onChange={handleChange} />}
+                                                                        label={task.title}
+                                                                        labelPlacement="end"
+                                                                    />
+                                                                </FormGroup>
+                                                            </FormControl>
                                                         </Grid>
+                                                        <Grid item xs={2}>
+                                                            <FiTrash className="floatRight deleteIcon" onClick={() => handleDelete(task.id)} size={18} />
+                                                        </Grid>
+                                                    </Grid>
 
-                                                    )) : null}
-                                                </div>
+                                                )) : null}
                                             </div>
                                         </div>
-                                    </Grid>
+                                    </div>
+                                </Grid>
 
-                                )) : null
-                                }
-                            </Grid>
-                        </Container>
+                            )) : null
+                            }
+                        </Grid>
                     </Grid>
                 </Grid>
             </Container>

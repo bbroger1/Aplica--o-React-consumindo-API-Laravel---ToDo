@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import api from '../../services/registerService';
 import apiLogon from '../../services/logonService';
@@ -12,30 +13,45 @@ export default function Register() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorRegister, setErrorRegister] = useState('');
+    const [errorCaptcha, setErrorCaptcha] = useState('');
 
     const history = useHistory();
+
+    const [captchaValid, setCaptchaValid] = useState();
+    const captcha = useRef(null);
+
+    const onChange = () => {
+        if (captcha.current.getValue()) {
+            setCaptchaValid(true);
+            setErrorCaptcha('');
+        };
+    };
 
     async function handleRegister(e) {
         e.preventDefault();
 
-        const data = {
-            "name": name,
-            "email": email,
-            "password": password,
-            "password_confirmation": confirmPassword,
-        };
+        if (captchaValid) {
+            const data = {
+                "name": name,
+                "email": email,
+                "password": password,
+                "password_confirmation": confirmPassword,
+            };
 
-        const response = await api.store(data);
+            const response = await api.store(data);
 
-        if (response.status === true) {
-            const responseLogin = await apiLogon.login({ email, password });
+            if (response.status === true) {
+                const responseLogin = await apiLogon.login({ email, password });
 
-            localStorage.setItem('token', responseLogin.message);
-            history.push('/lists');
+                localStorage.setItem('token', responseLogin.message);
+                history.push('/lists');
+            } else {
+                setErrorRegister(response.data.errors);
+            }
         } else {
-            console.log(response.data.errors);
-            setErrorRegister(response.data.errors);
+            setErrorCaptcha('Por favor marque a caixa acima.')
         }
+
     }
 
     return (
@@ -85,6 +101,12 @@ export default function Register() {
                         required
                     />
 
+                    <ReCAPTCHA
+                        ref={captcha}
+                        sitekey="6LehGEAdAAAAAIENu6ospbeZEFCYi_sLaPDVrhez"
+                        onChange={onChange}
+                    />
+                    <span className='span_error'>{errorCaptcha}</span>
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
             </div>

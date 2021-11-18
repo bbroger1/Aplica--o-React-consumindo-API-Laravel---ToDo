@@ -20,7 +20,7 @@ export default function Header() {
         <div className="header">
             <AppBar className="menu" position="static">
                 <Toolbar>
-                    <Link to="/financas" className="menuTitle">
+                    <Link to="/lists" className="menuTitle">
                         <h1>Minhas Tarefas</h1>
                     </Link>
 

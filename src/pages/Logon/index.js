@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import api from '../../services/logonService';
 import './styles.css';
@@ -11,22 +12,38 @@ export default function Logon() {
     const [errorLogin, setErrorLogin] = useState('');
     const history = useHistory();
 
+    const [captchaValid, setCaptchaValid] = useState();
+    const captcha = useRef(null);
+
+    const onChange = () => {
+        if (captcha.current.getValue()) {
+            setCaptchaValid(true);
+            setErrorLogin('')
+        };
+    };
+
     async function handleLogin(e) {
         e.preventDefault();
 
-        const response = await api.login({ email, password });
-        if (response.status === true) {
-            localStorage.setItem('token', response.message);
-            history.push('/lists');
+        if (captchaValid) {
+            const response = await api.login({ email, password });
+            if (response.status === true) {
+                localStorage.setItem('token', response.message);
+                history.push('/lists');
+            } else {
+                setErrorLogin(response.error)
+            }
         } else {
-            setErrorLogin(response.error)
+            setErrorLogin('Por favor marque a caixa acima.')
         }
+
     }
 
     return (
         <div className="logon-container">
+
             <section className="form">
-                <span className='span_error'>{errorLogin}</span>
+                <h1 align='center'>Minhas Tarefas</h1>
                 <form onSubmit={handleLogin}>
                     <input
                         placeholder="Seu e-mail"
@@ -41,6 +58,14 @@ export default function Logon() {
                         onChange={e => setPassword(e.target.value)}
                         required
                     />
+
+                    <ReCAPTCHA
+                        ref={captcha}
+                        sitekey="6LehGEAdAAAAAIENu6ospbeZEFCYi_sLaPDVrhez"
+                        onChange={onChange}
+                    />
+
+                    <span className='span_error'>{errorLogin}</span>
 
                     <button className="button" type="submit">Entrar</button>
 
